@@ -1,10 +1,610 @@
-var pdf = require('pdf-creator-node');
-var fs = require('fs');
+const pdf = require('pdf-creator-node');
+const fs = require('fs');
+const formService = require('./services/form');
+const request_1 = {
+  body: {
+    formType: 'form1',
+    itemKeys: [
+      'maVatTu',
+      'tenVatTu',
+      'quyCach',
+      'nhanHieu',
+      'nuocSanXuat',
+      'donViTinh',
+      'soLuong',
+      'donGia',
+      'thanhTien',
+      'ghiChu',
+    ],
+    calulateSummary: true,
+    records: [
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+    ],
+    thongTinHeader: {
+      maLenh: 12,
+      nguoiLap: 'user 123456',
+      ngayLap: '20/10/2023',
+      maSanPham: 'ASPPO',
+      boPhan: 'BP1',
+      maSo: 99900,
+      phienBan: 5.0,
+      NgayBanHanh: '20/09/2023',
+    },
+  },
+};
+const request_2 = {
+  body: {
+    formType: 'form2',
+    calulateSummary: true,
+    itemKeys: [
+      'maVatTu',
+      'tenVatTu',
+      'quyCach',
+      'nhanHieu',
+      'nuocSanXuat',
+      'donViTinh',
+      'soLuong',
+      'donGia',
+      'thanhTien',
+      'ghiChu',
+    ],
+    records: [
+      {
+        maVatTu: 1,
+        tenVatTu: 2,
+        quyCach: 3,
+        nhanHieu: 4,
+        nuocSanXuat: 54,
+        donViTinh: 1,
+        soLuong: 9,
+        donGia: 190,
+        thanhTien: 9,
+        ghiChu: 99,
+      },
+    ],
+    thongTinHeader: {
+      maLenh: 12,
+      nguoiLap: 'user 123456',
+      ngayLap: '20/10/2023',
+      maSanPham: 'ASPPO',
+      boPhan: 'BP1',
+      maSo: 99900,
+      phienBan: 5.0,
+      NgayBanHanh: '20/09/2023',
+      congDoan: 1,
+    },
+  },
+};
 
-(async function getPdfDonHang(request, response, conn) {
+const request_3 = {
+  body: {
+    formType: 'form3',
+    calulateSummary: false,
+    itemKeys: [
+      'noiDungKiemTra',
+      'phuongPhapDo',
+      'thongSoThucTe',
+      'thongSoThietKe',
+      'soLuongDat',
+      'soLuongKhongDat',
+      'ghiChu',
+    ],
+    records: [
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+      {
+        noiDungKiemTra: 'Kiểm tra sản phẩm abc,xyz',
+        phuongPhapDo: 'Thủ công',
+        thongSoThucTe: '300cm',
+        thongSoThietKe: 300,
+        soLuongDat: 300,
+        soLuongKhongDat: 0,
+        ghiChu: 'Đạt rồi',
+      },
+    ],
+    thongTinHeader: {
+      maLenh: 12,
+      nguoiLap: 'user 123456',
+      ngayLap: '20/10/2023',
+      maSanPham: 'ASPPO',
+      boPhan: 'BP1',
+      maSo: 99900,
+      phienBan: 5.0,
+      NgayBanHanh: '20/09/2023',
+      congDoan: 1,
+    },
+  },
+};
+async function getPdfDonHang(request, response, conn) {
   try {
     console.log('running to here....');
-    // let donHangTemp = request.body;
+    let { records, thongTinHeader, formType, itemKeys } = request.body;
     // donHangTemp = utilities.convertMapToJson(donHangTemp);
     // let donHang = donHangTemp['data'];
     // // console.log('donHang===', donHang)
@@ -12,55 +612,37 @@ var fs = require('fs');
     //   return __dirname + '/html2pdf/output_template.pdf';
     // Read HTML Template
     var html = fs.readFileSync(
-      __dirname + '/html2pdf/html/template.html',
+      __dirname + '/template/html/template.html',
       'utf8'
     );
     var cCSS = fs.readFileSync(
-      __dirname + '/html2pdf/html/components/style-donhang.html',
+      __dirname + '/template/html/styles/style.html',
       'utf8'
     );
     var cHeader = fs.readFileSync(
-      __dirname + '/html2pdf/html/components/header-donhang.html',
-      'utf8'
-    );
-    var cTongHangHoa = fs.readFileSync(
-      __dirname +
-        '/html2pdf/html/components/tong-hanghoa-donhang/tong-hanghoa-donhang.html',
-      'utf8'
-    );
-    var cTong = fs.readFileSync(
-      __dirname + '/html2pdf/html/components/tong-hanghoa-donhang/tong.html',
-      'utf8'
-    );
-    var cHangHoa = fs.readFileSync(
-      __dirname + '/html2pdf/html/components/tong-hanghoa-donhang/hanghoa.html',
+      __dirname + `/template/html/${formType}/header.html`,
       'utf8'
     );
 
-    var cGiaCuoc = fs.readFileSync(
-      __dirname + '/html2pdf/html/components/gia-cuoc-donhang.html',
+    var tableContent = fs.readFileSync(
+      __dirname + `/template/html/${formType}/content.html`,
       'utf8'
     );
 
-    var cDiemBocTra = fs.readFileSync(
-      __dirname +
-        '/html2pdf/html/components/diem-boctra-hang/diem-boctra-hang.html',
-      'utf8'
-    );
-    var cHangHoaBocTra = fs.readFileSync(
-      __dirname + '/html2pdf/html/components/diem-boctra-hang/hanghoa.html',
-      'utf8'
-    );
-    var cMoRongDiemBocTra = fs.readFileSync(
-      __dirname +
-        '/html2pdf/html/components/diem-boctra-hang/morong-boctra.html',
+    var cFooter = fs.readFileSync(
+      __dirname + `/template/html/${formType}/footer.html`,
       'utf8'
     );
     html = html.replace('<!-- CSS -->', cCSS);
     // update header
-    // cHeader = capNhatHeader(cHeader, donHang);
-    // html = html.replace('<!-- Header_Don_Hang -->', cHeader);
-    // console.log(cHeader);
+    html = html.replace('<!-- Header -->', cHeader);
+    html = html.replace('<!-- Footer -->', cFooter);
+    tableContent = tableContent.replace(
+      '<!-- content -->',
+      formService.generateContentForm1(records, itemKeys)
+    );
+    html = html.replace('<!-- Content -->', tableContent);
+
     // comment here
     // // update hang hoa
     // let temp = capNhatHangHoa(cHangHoa, cTong, donHang);
@@ -95,21 +677,39 @@ var fs = require('fs');
     // cGiaCuoc = capNhatGiaCuoc(cGiaCuoc, donHang);
     // html = html.replace('<!-- Gia_Cuoc -->', cGiaCuoc);
     // let uuid = donHang['soPhieu'] + '_' + utilities.generateUUIDValue();
-    // fs.writeFileSync(__dirname + '/html2pdf/output' + uuid + '.html', html);
+    fs.writeFileSync(
+      __dirname + '/template/output/' + Math.random() + '.html',
+      html
+    );
     //// comment here
+
+    const bitmap = fs.readFileSync(
+      __dirname + '/template/html/assets/imgs/logo.png'
+    );
+    const logo = bitmap.toString('base64');
     var document = {
       html: html,
       data: {},
       //   path: __dirname + '/html2pdf/output' + uuid + '.pdf',
-      path: __dirname + '/html2pdf/output/' + Math.random() + '.pdf',
+      path: __dirname + '/template/output/' + Math.random() + '.pdf',
       type: '',
+      data: {
+        thongTinHeader: {
+          ...thongTinHeader,
+          logo: logo,
+        },
+
+        config: {
+          __dirname: __dirname,
+        },
+      },
     };
     // By default a file is created but you could switch between Buffer and Streams by using "buffer" or "stream" respectively.
 
     await pdf
       .create(document, {
         format: 'A3',
-        orientation: 'landscape',
+        orientation: 'portrait',
         childProcessOptions: {
           env: {
             OPENSSL_CONF: '/dev/null',
@@ -128,4 +728,10 @@ var fs = require('fs');
     console.log('err===', err);
     throw err;
   }
-})();
+}
+
+//Form mua vật tư
+// getPdfDonHang(request_1);
+
+//Form lĩnh vật tư
+getPdfDonHang(request_3);
