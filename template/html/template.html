@@ -7,18 +7,28 @@
     <meta
       name="title"
       content="H&#243;a &#273;&#417;n V&#7853;n chuy&#7875;n h&#224;ng h&#243;a" />
+    <!-- content= "Hóa đơn Vận chuyển hàng hóa" -->
     <!-- CSS -->
   </head>
 
   <body>
-    <div id="page_1">
+    <div>
       <!-- Header -->
 
-      <div style="page-break-after: always">
-        <!-- Content -->
+      <div class="table-container">
+        <table>
+          <tr>
+            <th style="width: 38px" class="text-center">STT</th>
+            {{#each config/columns}}
+            <th style="width:{{this.width}}px;">{{this.title}}</th>
+            {{/each}}
+          </tr>
+
+          <!-- Content -->
+        </table>
       </div>
 
-      <div>
+      <div style="padding-top: 20px">
         <!-- Footer -->
       </div>
     </div>

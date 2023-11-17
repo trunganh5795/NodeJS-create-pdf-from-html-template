@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>pdf-html</title>
+    <meta name="generator" content="BCL easyConverter SDK 5.0.252" />
+    <meta
+      name="title"
+      content="H&#243;a &#273;&#417;n V&#7853;n chuy&#7875;n h&#224;ng h&#243;a" />
+    <!-- content= "Hóa đơn Vận chuyển hàng hóa" -->
+    <style>
+  * {
+    /* margin: 0;
+    padding: 0; */
+    box-sizing: border-box;
+  }
+  body {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  /* /////////////////// */
+  .d-flex {
+    display: flex;
+  }
+  .flex-1 {
+    flex-grow: 1;
+  }
+  .flex-50 {
+    flex: 50%;
+  }
+
+  span {
+    color: rgb(101, 103, 107);
+    font-weight: normal;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  td,
+  th {
+    border: 1px solid #000000;
+    /* border-bottom: 9px; */
+    text-align: left;
+    padding: 8px;
+  }
+
+  .no-border-table,
+  .no-border-table td,
+  .no-border-table th {
+    border: none;
+    border-collapse: unset;
+  }
+
+  table,
+  tr,
+  td {
+    page-break-inside: avoid;
+    font-size: 13px;
+  }
+  .footer tr,
+  .footer td {
+    font-size: 16px;
+  }
+  tr {
+    margin-top: -1px;
+    position: relative;
+  }
+  .table-content table td {
+    border-bottom: none;
+  }
+  /* Helps */
+  .align-bottom {
+    vertical-align: bottom;
+  }
+  .font-weight-100 {
+    font-weight: 100;
+  }
+  .margin-0 {
+    margin: 0;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .align-self-center {
+    -ms-flex-item-align: center !important;
+    align-self: center !important;
+  }
+  /*  */
+</style>
+
+  </head>
+
+  <body>
+    <div>
+      <div>
+  <table>
+    <tr>
+      <th rowspan="4">
+        <img
+          width="150px"
+          src="data:image/png;base64,{{thongTinHeader.logo}}"
+          alt="Logo" />
+      </th>
+      <th colspan="2">
+        <h2 class="text">PHIẾU KCS</h2>
+      </th>
+
+      <th>Biểu mẫu:</th>
+    </tr>
+
+    <!-- <tbody> -->
+    <tr>
+      <td>Mã Lệnh : {{thongTinHeader.maLenh}}</td>
+      <td>Mã sản phẩm : {{thongTinHeader.maSanPham}}</td>
+      <td>Mã số : {{thongTinHeader.maSo}}</td>
+    </tr>
+    <tr>
+      <td>Người lập : {{thongTinHeader.nguoiLap}}</td>
+      <td>Bộ phận : {{thongTinHeader.boPhan}}</td>
+      <td>Phiên bản: {{thongTinHeader.phienBan}}</td>
+    </tr>
+    <tr>
+      <td>Ngày lập : {{thongTinHeader.ngayLap}}</td>
+      <td>Số seri : Công đoạn {{thongTinHeader.soSeri}}</td>
+      <td>Ngày ban hành: {{thongTinHeader.NgayBanHanh}}</td>
+    </tr>
+    <!-- </tbody> -->
+  </table>
+</div>
+<div>&nbsp;</div>
+
+
+      <div class="table-container">
+        <table>
+          <tr>
+            <th style="width: 38px" class="text-center">STT</th>
+            {{#each config/columns}}
+            <th style="width:{{this.width}}px;">{{this.title}}</th>
+            {{/each}}
+          </tr>
+
+          <table style="margin-top:-1px">
+      <tr>
+      <th>KCS Cấu Hình</th>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">1</td>
+      <td style="width:300px">Số lượng rọ đựng vật hấp theo cấu hình chào</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">2</td>
+      <td style="width:300px">Dây cáp nguồn: 01 cái, kích thước 2x4mm2</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">3</td>
+      <td style="width:300px">Dây nối đất: 01 cái, dài 2m, kích thước 1x1mm2</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">4</td>
+      <td style="width:300px">Sách hướng dẫn sử dụng: 01 quyển</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">5</td>
+      <td style="width:300px">Quy trình vận hành: 01 tờ (dán trên máy)</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">6</td>
+      <td style="width:300px">Đồng hồ đo và theo dõi áp suất buồng khử khuẩn (mặt trước): -1 kgf/cm2 đến 5 kgf/cm2</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">7</td>
+      <td style="width:300px">Aptomat tổng: 1P, 32A, chức năng chống dòng dò</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">8</td>
+      <td style="width:300px">Công suất thanh đốt (50,75 lít : 4kW / 100 lít: 4,5kW)</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">9</td>
+      <td style="width:300px">Đầy đủ tem nhãn cho công tắc, đèn báo, mác sản phẩm</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <th>KCS Lắp ráp</th>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">1</td>
+      <td style="width:300px">Tất cả các vị trí đấu dây, hàn dây chắc chắn, không bị tuột khi chịu lựu kéo bằng tay</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">2</td>
+      <td style="width:300px">Các vị trí đi dây đúng theo quy định, các vị trí buộc dây khi lắp ráp đúng vị trí, buộc dây chắc chắn</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">3</td>
+      <td style="width:300px">Kích thước, màu dây và đánh số dây đúng như bản vẽ</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">4</td>
+      <td style="width:300px">Mở và khóa nắp buồng hấp dễ dàng, và chắc chắn</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">5</td>
+      <td style="width:300px">Thanh đốt không bị cong, vênh, trồi lên khỏi mực nước trong nồi (khi đủ nước)</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">6</td>
+      <td style="width:300px">Đo điện trở thanh đốt ~ 12 ôm (R=U2/P)</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">7</td>
+      <td style="width:300px">Đo trở kháng cách điện giữa thanh đốt với vỏ máy</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <th>KCS Chức Năng Hoạt Động</th>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">1</td>
+      <td style="width:300px">Màn hình LED: Sáng rõ, không bị nhiễu</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">2</td>
+      <td style="width:300px">Test chức năng, độ nhạy của các phím điều khiển</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">3</td>
+      <td style="width:300px">Kiểm tra tham số cài đặt 10 chương trình mặc định đúng như cấu hình kỹ thuật</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">4</td>
+      <td style="width:300px">Test chức năng chọn chương trình (cài đặt sẵn và tùy chọn), cài đặt tham số, hiệu chỉnh tham số chương trình</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">5</td>
+      <td style="width:300px">Không dò rỉ hơi hoặc nước trong quá trình chạy thử</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">6</td>
+      <td style="width:300px">Van an toàn tự động mở khi áp suất ≥ 2,7kgf/cm2 và tự động đóng khi áp suất ≤ 2.5 kgf/cm2</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">7</td>
+      <td style="width:300px">Các đèn báo heat, power, water sáng rõ và hoạt động đúng chức năng</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">8</td>
+      <td style="width:300px">Test chức năng hoạt động và hiển thị nút thoát hiểm Exhaust</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">9</td>
+      <td style="width:300px">Test lỗi E1: Khóa van cấp nước sau đó chạy nồi hấp, kiểm tra xem thiết bị có báo lỗi E1 hay không (sau 15p)</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">10</td>
+      <td style="width:300px">Test lỗi E2: Khóa van cấp nước trong quá trình tiệt trùng, kiểm tra xem thiết bị có báo lỗi E2 hay không</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">11</td>
+      <td style="width:300px">Test lỗi E3: Ngắt tín hiệu cảm biến nhiệt độ, kiểm tra xem thiết bị có báo lỗi E3 hay không</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">12</td>
+      <td style="width:300px">Test lỗi E4: Rút role điều khiển của thanh đốt. Kiểm tra xem nồi hấp có báo lỗi E4 hay không</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">13</td>
+      <td style="width:300px">Chức năng hoạt động đóng mở của các van điện bình thường, không có tiếng kêu lạch cạch khi van mở</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">14</td>
+      <td style="width:300px">Chức năng báo cạn nước</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">15</td>
+      <td style="width:300px">Chạy thử ít nhất 3 chương trình hoàn chỉnh Chường trình 3; Chường trình 6; Chường trình 10</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">16</td>
+      <td style="width:300px">Các đường ống kín không bị rò rỉ</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">17</td>
+      <td style="width:300px">Gioăng thiết bị không bị rò rỉ</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      <table style="margin-top:-1px">
+      <tr>
+      <td style="width:38px">18</td>
+      <td style="width:300px">Cơ cấu đóng, mở nắp nồi nhẹ nhàng</td>
+      <td style="width:50px">&nbsp;</td>
+      <td style="width:70px">&nbsp;</td>
+      <td style="width:150px">&nbsp;</td>
+      </tr>
+      </table>
+      
+        </table>
+      </div>
+
+      <div style="padding-top: 20px">
+        <table class="no-border-table footer">
+  <thead>
+    <tr>
+      <th class="text-center align-bottom">
+        Người kiêm KCS
+        <br />
+        <span>(Ký, ghi rõ họ tên)</span>
+      </th>
+
+      <th class="text-center">
+        <p class="font-weight-100 margin-0">
+          Hà Nội, ngày....tháng....năm 2023
+        </p>
+        Giám đốc nhà máy
+        <br />
+        <span>(Ký, ghi rõ họ tên)</span>
+      </th>
+    </tr>
+  </thead>
+</table>
+
+      </div>
+    </div>
+  </body>
+</html>
